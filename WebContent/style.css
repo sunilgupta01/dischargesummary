@@ -1,0 +1,36 @@
+body {
+	background: rgb(204, 204, 204);
+}
+
+.container {
+	width: 20cm;
+}
+
+page[size="A4"] {
+	background: white;
+	width: 21cm;
+	height: 29.7cm;
+	display: block;
+	margin: 0 auto;
+	box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+	margin-bottom: 0.5cm;
+}
+
+fieldset.for-panel {
+	border: 1px solid #999;
+	border-radius: 4px;
+	padding: 5px 5px;
+	margin-bottom: 5px;
+}
+
+fieldset.for-panel legend {
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 10px;
+	margin: inherit;
+	padding: 7px;
+	width: auto;
+	margin-bottom: 0;
+}
