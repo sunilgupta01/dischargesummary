@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title>Discharge Summary</title>
+<link href="vendor/css/bootstrap.css" rel="stylesheet" media="all">
+<link rel="stylesheet" href="bootstrap-override.css">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="print.css">
+<script type="text/javascript" src="app.js"></script>
+</head>
+<page size="A4">
+<body onload="setDefaults()">
+	<header class="visible-print">
+		<br> <br> <br> <br> <br> <br>
+		<h2 style="text-align: center;">Discharge Summary</h2>
+	</header>
+	<header class="hidden-print">
+		<h1 style="text-align: center;">Shanti Devi Memorial Hospital</h1>
+		<h2 style="text-align: center;">Discharge Summary</h2>
+		<br>
+	</header>
+	<!-- No Navigation is required. Template type could come under navigation<nav></nav> -->
+	<section>
+		<div class="container">
+			<div class="hidden-print">
+				<label>Patient Type:</label> <label class="radio-inline"
+					onclick="selectNeonate()"> <input type="radio"
+					name="patientType" id="neonate" value="option1">Neonate
+				</label> <label class="radio-inline" onclick="selectChild()"> <input
+					type="radio" name="patientType" id="child" value="option2">
+					Child
+				</label>
+			</div>
+			<div class="row">
+				<fieldset class="for-panel">
+					<legend>Patient's Info</legend>
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="form-horizontal">
+								<div class="form-group ">
+									<label for="regNo"
+										class="control-label col-xs-6 col-sm-6 col-md-6 col-lg-6 ">Registration
+										Number: </label>
+									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
+										<input type="text" id="regNo" maxlength="10"
+											class="form-control ">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6"></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="form-horizontal">
+								<div class="form-group ">
+									<label for="patientName"
+										class="control-label col-xs-6 col-sm-6 col-md-6 col-lg-6 "><span
+										id="patientName">Patient Name: </span><span id="babyOf">Baby
+											Of: </span></label>
+									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
+										<input type="text" maxlength="30" class="form-control ">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6" id="motherName">
+							<div class="form-horizontal">
+								<div class="form-group ">
+									<label for="motherName"
+										class="control-label col-xs-6 col-sm-6 col-md-6 col-lg-6 ">Mother
+										Name: </label>
+									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
+										<input type="text" maxlength="30" class="form-control ">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-6" id="dob">
+							<div class="form-horizontal">
+								<div class="form-group ">
+									<label for="dob"
+										class="control-label col-xs-6 col-sm-6 col-md-6 col-lg-6 ">Date
+										Of Birth: </label>
+									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
+										<input type="date" class="form-control ">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6" id="age">
+							<div class="form-horizontal">
+								<div class="form-group ">
+									<label for="age"
+										class="control-label col-xs-6 col-sm-6 col-md-6 col-lg-6 ">Age:
+									</label>
+									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 "
+										style="padding-right: 0px;">
+										<div class="input-group">
+											<input type="text" maxlength="2" size="2"
+												class="form-control "><span
+												class="input-group-addon">Ys</span>
+										</div>
+									</div>
+									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 "
+										style="padding-left: 3px; padding-right: 3px;">
+										<div class="input-group">
+											<input type="text" maxlength="2" size="2"
+												class="form-control "><span
+												class="input-group-addon">Ms</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-sm-6" id="genderInput">
+							<div class="form-horizontal">
+								<div class="form-group ">
+									<label for="gender"
+										class="control-label col-xs-6 col-sm-6 col-md-6 col-lg-6 ">Gender:
+									</label>
+									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 hidden-print">
+										<label class="radio-inline"> <input type="radio"
+											name="genderInput" value="Male" onclick="selectGender(this)">Male
+										</label> <label class="radio-inline"><input type="radio"
+											name="genderInput" value="Female"
+											onclick="selectGender(this)"> Female </label>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 visible-print">
+										<label class="form-control-static" id="gender"> </label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-6" id="doa">
+							<div class="form-horizontal">
+								<div class="form-group ">
+									<label for="doa"
+										class="control-label col-xs-6 col-sm-6 col-md-6 col-lg-6 ">Date
+										Of Admission: </label>
+									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
+										<input type="date" class="form-control ">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6" id="dod">
+							<div class="form-horizontal">
+								<div class="form-group ">
+									<label for="dod"
+										class="control-label col-xs-6 col-sm-6 col-md-6 col-lg-6 ">Date
+										Of Discharge: </label>
+									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
+										<input type="date" class="form-control ">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row" id="weights">
+						<div class="col-sm-4" id="woa">
+							<div class="form-horizontal">
+								<div class="form-group ">
+									<label for="waa"
+										class="control-label col-xs-6 col-sm-6 col-md-6 col-lg-6 ">Admission
+										Wt: </label>
+									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 input-group">
+										<input type="number" step="0.1" class="form-control "><span
+											class="input-group-addon">kgs</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-4" id="wod">
+							<div class="form-horizontal">
+								<div class="form-group ">
+									<label for="wad"
+										class="control-label col-xs-6 col-sm-6 col-md-6 col-lg-6 ">Discharge
+										Wt: </label>
+									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 input-group">
+										<input type="number" class="form-control "><span
+											class="input-group-addon">kgs</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-4" id="hcDiv">
+							<div class="form-horizontal">
+								<div class="form-group ">
+									<label for="hc"
+										class="control-label col-xs-6 col-sm-6 col-md-6 col-lg-6 ">HC:
+									</label>
+									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 input-group">
+										<input type="number" id="hc" maxlength="6" size="6"
+											class="form-control "><span class="input-group-addon">cms</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</fieldset>
+				<br>
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="form">
+							<div class="form-group">
+								<label for="diag" style="font-weight: bold;">Diagnosis:
+								</label>
+								<textarea type="text" class="form-control " rows="2"
+									style="font-size: 16px; padding-left: 20px; text-decoration: underline;"></textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+				<br>
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="form">
+							<div class="form-group ">
+								<label for="rxGiven" style="font-weight: bold;">Rx
+									Given: </label>
+								<textarea type="text" class="form-control " rows="4"
+									style="padding-left: 20px;"></textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+				<br>
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="form">
+							<div class="form-group ">
+								<label for="advice" style="font-weight: bold;">Advice: </label>
+								<textarea type="text" class="form-control " rows="6"
+									style="padding-left: 20px;"></textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div
+				style="margin: 0; background-color: transparent; text-align: center;">
+				<button type="button" onclick="printSummary();"
+					class="btn btn-primary hidden-print">Print</button>
+			</div>
+
+			<!-- /container -->
+	</section>
+	<footer class="hidden-print"
+		style="position: absolute; top: 27.5cm; bottom: 0; width: 21cm;">
+		<h3></h3>
+		<h1
+			style="text-align: center; background-color: gray; margin-bottom: 0px;">Shanti
+			Devi Memorial Hospital</h1>
+		<h5
+			style="text-align: center; background-color: gray; margin-top: 0px; margin-bottom: 0px;">Timings:
+			Morning: 10:00AM to 02:00PM | Evening: 05:30PM to 08:00 PM | Sunday:
+			10:00AM to 12:00Noon</h5>
+		<h5
+			style="text-align: center; background-color: gray; margin-top: 0px;">Free
+			OPD TUESDAY MORNING</h5>
+	</footer>
+</body>
+</page>
+</html>
