@@ -2,6 +2,4 @@
 HTML application to print discharge summary
 
 
-[Site could be accessed here](https://sunilgupta01.github.io/dischargesummary){:target="_blank"}
-
-<a href="https://sunilgupta01.github.io/dischargesummary" target="_blank">Site could be accessed here</a>
+[Site could be accessed here (github.io)](https://sunilgupta01.github.io/dischargesummary)
