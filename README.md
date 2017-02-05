@@ -2,4 +2,4 @@
 HTML application to print discharge summary
 
 
-[Site](WebContent/index.html)
+[Site could be accessed here](https://sunilgupta01.github.io/dischargesummary)
