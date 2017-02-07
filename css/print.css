@@ -48,6 +48,7 @@
 	}
 	.form-control {
 		border-style: none;
+		padding-left: 0px;
 	}
 	::-webkit-input-placeholder { /* WebKit browsers */
 		color: transparent;
